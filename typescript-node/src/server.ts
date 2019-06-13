@@ -1,6 +1,8 @@
 import errorHandler from "errorhandler";
 
 import app from "./app";
+import { ChatServer } from "./socket/chat-server";
+
 
 /**
  * Error Handler. Provides full stack - remove for production
@@ -19,4 +21,6 @@ const server = app.listen(app.get("port"), () => {
   console.log("  Press CTRL-C to stop\n");
 });
 
-export default server;
+const chat = new ChatServer(server);
+
+export default {server, chat};
