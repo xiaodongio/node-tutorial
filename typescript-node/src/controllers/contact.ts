@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { Request, Response } from "express";
+import { User } from "../models/User";
 
 const transporter = nodemailer.createTransport({
   service: "SendGrid",
@@ -15,7 +16,8 @@ const transporter = nodemailer.createTransport({
  */
 export let getContact = (req: Request, res: Response) => {
   res.render("contact", {
-    title: "Contact"
+    title: "Contact",
+    users: User.find()
   });
 };
 
