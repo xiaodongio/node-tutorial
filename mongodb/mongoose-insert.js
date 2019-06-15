@@ -20,10 +20,23 @@ task.description = 'Paint the bikeshed red.';
 //   console.log('Task saved.');
 // });
 
-Task.find({'project': 'Bikeshed'}, (err, tasks) => {
-  tasks.forEach(task => {
-    console.log('Id : ' + task._id);
-    console.log('description : ' + task.description);
-  });
+// Task.find({'project': 'Bikeshed'}, (err, tasks) => {
+//   tasks.forEach(task => {
+//     console.log('Id : ' + task._id);
+//     console.log('description : ' + task.description);
+//   });
+// });
+
+
+Task.findOne({}, function(err, doc) {
+  if(!err) {
+    console.log(doc);
+    doc.update({$set: {project: "Bikeshed1"}}, function(err) {
+      console.log(arguments);
+    })
+    // doc.project = "Bikeshed2";
+    // doc.save();
+    console.log(doc.get("project"));
+  }
 })
 
