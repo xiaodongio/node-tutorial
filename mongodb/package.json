@@ -4,12 +4,22 @@
   "description": "",
   "main": "test-insert.js",
   "dependencies": {
+    "@shelf/jest-mongodb": "^1.0.1",
     "mongodb": "^3.2.7",
     "mongoose": "^5.5.14"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/mongodb": "^3.0.5",
+    "@types/mongoose": "^4.7.34",
+    "@types/node": "^9.4.6",
+    "@types/jest": "^22.1.3",
+    "jest": "^24.0.0",
+    "ts-jest": "^24.0.0",
+    "ts-node": "^5.0.0",
+    "typescript": "^3.4.5"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
