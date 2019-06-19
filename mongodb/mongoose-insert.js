@@ -28,15 +28,25 @@ task.description = 'Paint the bikeshed red.';
 // });
 
 
-Task.findOne({}, function(err, doc) {
-  if(!err) {
-    console.log(doc);
-    doc.update({$set: {project: "Bikeshed1"}}, function(err) {
-      console.log(arguments);
-    })
-    // doc.project = "Bikeshed2";
-    // doc.save();
-    console.log(doc.get("project"));
-  }
-})
+// Task.findOne({}, function(err, doc) {
+//   if(!err) {
+//     console.log(doc);
+//     doc.update({$set: {project: "Bikeshed1"}}, function(err) {
+//       console.log(arguments);
+//     })
+//     // doc.project = "Bikeshed2";
+//     // doc.save();
+//     console.log(doc.get("project"));
+//   }
+// });
 
+
+async function create() {
+  return await Task.create({
+    "project": "mongodb1",
+    "description" : "demo2"
+  });
+}
+
+
+console.log(create().then());
