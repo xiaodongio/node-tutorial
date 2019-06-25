@@ -1,0 +1,1 @@
+npm install passport passport-local express express-session bcrypt lodash body-parser --save --registry=https://registry.npm.taobao.org
