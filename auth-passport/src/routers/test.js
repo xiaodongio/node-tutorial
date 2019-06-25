@@ -1,6 +1,5 @@
 const express = require('express');
-
-const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
+const passport = require('../config/passport');
 const router = express.Router();
 
 router.get("/test", (req, res, next) => {
@@ -15,7 +14,7 @@ router.get("/test", (req, res, next) => {
   }
 });
 
-router.get('/loginValid', ensureAuthenticated, (req, res) =>
+router.get('/loginValid', passport.ensureAuthenticated(), (req, res) =>
   res.send({
     msg: 'success'
   })

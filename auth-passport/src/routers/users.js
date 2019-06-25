@@ -1,22 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
+const passport = require('../config/passport');
+const User = require('../models/user');
 
 
-router.get("/userList", async (req, res, next) => {
-  try {
-    const users = await User.find({});
-    res.json({users});
-  } catch (err) {
-    next(err);
-  }
+router.get("/user", async (req, res) => {
+  let name = req.query.name;
+  const user = await User.findByName(name);
+  res.send({user});
 });
 
 router.post("/login", 
   passport.authenticate('local', {
-    successMessage: 'login success',
-    failureMessage: "system error"
-  })
+    successMessage: 'success',
+    failureMessage: 'failure'
+  }),
+  function(req, res) {
+    console.log(111);
+    res.send('123')
+  }
 )
 
 module.exports = router;
